@@ -1,0 +1,27 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ news.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <article class="card mb-4">
+                    <header class="card-header">
+                        <h2 class="card-title">{{ news.title }}</h2>
+                        <h5 class="text-muted">{{ news.publish.time }}</h5>
+                    </header>
+                    <div class="card-body">
+                        {% if news.image %}
+                            <img src="{{ news.image.url }}" class="img-fluid mb-3" alt="{{ news.title }}">
+                        {% endif %}
+                        <p class="card-text">{{ news.body }}</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}
